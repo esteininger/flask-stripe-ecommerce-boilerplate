@@ -1,6 +1,6 @@
 # Flask Stripe AJAX eEcommerce Example [![Build Status](http://img.shields.io/travis/shama/gaze.svg)](https://travis-ci.org/shama/gaze) [![Build status](https://ci.appveyor.com/api/projects/status/vtx65w9eg511tgo4)](https://ci.appveyor.com/project/shama/gaze)
 
-A simple, Flask/AJAX-powered eCommerce web app that uses Stripe to checkout products from a cart.
+A simple, Flask & AJAX-powered eCommerce web app that uses Stripe to charge products based on what's in a user's a cart. This was an exercise requested from Stripe's interview process, and is freely available to anyone needing to implement Stripe with AJAX/JQuery and Flask.
 
 ### Installation
 
@@ -48,9 +48,9 @@ python manage.py
 
 
 
-## Future
+## What's next?
 
-
+* Email confirmation with a link to the charge ID for review
 
 
 
