@@ -1,0 +1,123 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="../static/index.css">
+
+<meta id="stripeKey" data-key='{{ key }}'>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Flask Shop</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> <span id="cart-count">0</span> - Items
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-cart" role="menu">
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" id="checkout-cart" href="#">Checkout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container" style="padding-top: 10em;">
+    <div class="row">
+    	<div class="col-md-12">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail" >
+					<img src="http://placehold.it/650x450&text=Galaxy S5" class="img-responsive">
+					<div class="caption">
+						<div class="row">
+							<div class="col-md-6 col-xs-6">
+								<h3>Galaxy S5</h3>
+							</div>
+							<div class="col-md-6 col-xs-6 price">
+								<h3>
+								<label>$649.99</label></h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<a href="#" class="btn btn-success btn-product" data-amount="64999" data-product="Galaxy S5">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                                </a>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail" >
+					<img src="http://placehold.it/650x450&text=iPhone 6" class="img-responsive">
+					<div class="caption">
+						<div class="row">
+							<div class="col-md-6 col-xs-6">
+								<h3>iPhone 6</h3>
+							</div>
+							<div class="col-md-6 col-xs-6 price">
+								<h3>
+								<label>$749.99</label></h3>
+							</div>
+						</div>
+						<div class="row">
+                            <div class="col-md-6">
+								<a href="#" class="btn btn-success btn-product" data-amount="74999" data-product="iPhone 6">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                                </a>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="col-sm-6 col-md-4">
+				<div class="thumbnail" >
+					<img src="http://placehold.it/650x450&text=Lumia 1520" class="img-responsive">
+					<div class="caption">
+						<div class="row">
+							<div class="col-md-6 col-xs-6">
+								<h3>Lumia 1520</h3>
+							</div>
+							<div class="col-md-6 col-xs-6 price">
+								<h3>
+								<label>$749.00</label></h3>
+							</div>
+						</div>
+                        <div class="row">
+                            <div class="col-md-6">
+								<a href="#" class="btn btn-success btn-product" data-amount="74999" data-product="Lumia 1520">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                                </a>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+        </div>
+
+	</div>
+</div>
+
+
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<script src="../static/index.js"></script>
