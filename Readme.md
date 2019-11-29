@@ -4,9 +4,9 @@
 
 [![Build Status](http://img.shields.io/travis/shama/gaze.svg)](https://travis-ci.org/shama/gaze) [![Build status](https://ci.appveyor.com/api/projects/status/vtx65w9eg511tgo4)](https://ci.appveyor.com/project/shama/gaze)
 
-A simple, Flask & AJAX-powered eCommerce web app starter kit that uses Stripe to charge products based on what's added to a user's LocalStorage cart.
+A simple Flask & AJAX-powered eCommerce web app starter kit that uses Stripe to charge products based on what's added to a user's LocalStorage cart.
 
-This example was built during Stripe's [Solutions Architect](https://stripe.com/jobs/listing/solutions-architect/1156461) interview process, and is freely available to anyone exploring Stripe checkout integration with Flask and JQuery/AJAX.
+This example was built for Stripe's [Solutions Architect](https://stripe.com/jobs/listing/solutions-architect/1156461) interview process, and is freely available to anyone exploring Stripe checkout integration with Flask and JQuery/AJAX.
 
 ### Installation
 
@@ -47,7 +47,7 @@ The LocalStorage key `cart` and cart HTML DOM is also cleared.
 
 2. Clicking `Add to Cart` below each product will both append an object like `{amount: 74999, product: "iPhone 6"}` to the `cart` LocalStorage array, and push the product to the DOM `<ul class="dropdown-cart"/>` cart dropdown.
 
-3. Clicking Checkout in the cart dropdown loops through the `cart` LocalStorage array and calculates the amount total, while concatenating the product strings:
+3. Clicking Checkout in the cart dropdown, loops through the `cart` LocalStorage array and calculates the amount total, while concatenating the product strings:
 
 ``` javascript
 var cart = JSON.parse(localStorage.getItem('cart'));
@@ -61,7 +61,7 @@ cart.forEach(function(item, index) {
     }
 });
 ```
-4. The total amount `int`, product `str`, and key (`data-key`) are sent to the client and passed to the stripeHandler function, which calls the `StripeCheckout.configure` method. This returns a `token` variable, which is then passed into an object, `data`.
+4. The total amount `int`, product `str`, and key (`data-key`) are passed to the stripeHandler function, which calls the `StripeCheckout.configure` method. The token callback returns a `token` variable, which is then passed into an object, `data`.
 
 ``` javascript
 function stripeHandlder(totalAmount, productStr) {
@@ -87,7 +87,7 @@ customer = stripe.Customer.create(
     source=json['stripe_token']
 )
 ```
-Then passes the customer response to the [create charge method](https://stripe.com/docs/api/charges/create):
+Then passes the customer object to the [create charge method](https://stripe.com/docs/api/charges/create):
 
 ``` python
 charge = stripe.Charge.create(
@@ -127,12 +127,12 @@ These front end and backend selections were made due to both of their eases of u
 ## What's next?
 
 * Email confirmation with a link to the charge ID for review
-* Storing email address with charge ID in a SQL database
+* Storing email address with charge information in a SQL database 
+* Request charge information from database instead of URL arguments
 * Request and store shipping information /w auto calculation of shipping cost
 * Organize the code base into a Model View Controller structure
 * Sentry error logging and email alerting
-* Order purchase notifications emailed
-
+* Order purchase notifications emailed to admin 
 
 ## License
 Copyright (c) 2019 Ethan Steininger  
