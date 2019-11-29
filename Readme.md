@@ -22,8 +22,8 @@ pip install -r requirements.txt
 
 ``` json
 stripe_keys = {
-    'secret_key': "",
-    'publishable_key': ""
+    "secret_key": "",
+    "publishable_key": ""
 }
 ```
 
