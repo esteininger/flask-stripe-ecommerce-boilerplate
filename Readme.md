@@ -133,6 +133,7 @@ These front end and backend selections were made due to both of their eases of u
 * Organize the code base into a Model View Controller structure
 * Sentry error logging and email alerting
 * Order purchase notifications emailed to admin 
+* Product listing pulled from a database
 
 ## License
 Copyright (c) 2019 Ethan Steininger  
