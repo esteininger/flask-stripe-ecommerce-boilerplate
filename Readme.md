@@ -4,7 +4,7 @@
 
 [![Build Status](http://img.shields.io/travis/shama/gaze.svg)](https://travis-ci.org/shama/gaze) [![Build status](https://ci.appveyor.com/api/projects/status/vtx65w9eg511tgo4)](https://ci.appveyor.com/project/shama/gaze)
 
-A simple, Flask & AJAX-powered eCommerce web app starter kit that uses Stripe to charge products based on what's added to a user's cart.
+A simple, Flask & AJAX-powered eCommerce web app starter kit that uses Stripe to charge products based on what's added to a user's LocalStorage cart.
 
 This example was built during Stripe's [Solutions Architect](https://stripe.com/jobs/listing/solutions-architect/1156461) interview process, and is freely available to anyone exploring Stripe checkout integration with Flask and JQuery/AJAX.
 
@@ -37,7 +37,7 @@ python manage.py
 
 ### How does it work?
 
-1. When the page is loaded, the publishable_key you configured above is sent to the client via `render_template`:
+1. When the page is loaded, the `publishable_key` you configured above is sent to the client via `render_template`:
 ``` python
 @app.route('/')
 def home_page():
@@ -45,9 +45,9 @@ def home_page():
 ```
 The LocalStorage key `cart` and cart HTML DOM is also cleared.
 
-2. Clicking `Add to Cart` below each product image will both append an object like `{amount: 74999, product: "iPhone 6"}` to the `cart` LocalStorage array, and push the product to the DOM `<ul class="dropdown-cart"/>` cart dropdown.
+2. Clicking `Add to Cart` below each product will both append an object like `{amount: 74999, product: "iPhone 6"}` to the `cart` LocalStorage array, and push the product to the DOM `<ul class="dropdown-cart"/>` cart dropdown.
 
-3. Clicking Checkout in the cart dropdown loops through the `cart` LocalStorage array and accumulates the amount total, while concatenating the product strings:
+3. Clicking Checkout in the cart dropdown loops through the `cart` LocalStorage array and calculates the amount total, while concatenating the product strings:
 
 ``` javascript
 var cart = JSON.parse(localStorage.getItem('cart'));
@@ -61,7 +61,7 @@ cart.forEach(function(item, index) {
     }
 });
 ```
-4. The total amount int and product str are passed to the stripeHandler function, which calls the `StripeCheckout.configure` method. This returns a `token` variable, which is then passed into an object, `data`
+4. The total amount `int`, product `str`, and key (`data-key`) are sent to the client and passed to the stripeHandler function, which calls the `StripeCheckout.configure` method. This returns a `token` variable, which is then passed into an object, `data`.
 
 ``` javascript
 function stripeHandlder(totalAmount, productStr) {
@@ -87,7 +87,7 @@ customer = stripe.Customer.create(
     source=json['stripe_token']
 )
 ```
-Then passes the customer to the [create charge method](https://stripe.com/docs/api/charges/create):
+Then passes the customer response to the [create charge method](https://stripe.com/docs/api/charges/create):
 
 ``` python
 charge = stripe.Charge.create(
@@ -100,7 +100,7 @@ charge = stripe.Charge.create(
 
 6. This charge variable is then sent back to the frontend as a 200 json response where the AJAX `done` callback redirects the page to `/confirmation` with url arguments: `id`, `amount`, `email` and `product`.
 
-7. Flask then pulls the arguments from that redirect URL and sends them directly to the client via render_template:
+7. Flask then pulls the arguments from that redirect URL and sends them directly to the client via `render_template`:
 
 ``` python
 @app.route('/confirmation')
@@ -120,14 +120,16 @@ Where the Success confirmation screen is finally displayed.
 
 ## Technology Justification
 
-The intent of this activity was to demonstrate the ability to consume technical documentation (Stripe SDK) and produce a fully-functional POC (proof of concept) that can be handed off with minimal instruction.
+The intent of this activity was to demonstrate the ability to consume technical documentation ([Stripe SDK](https://stripe.com/docs/libraries)) and produce a fully-functional POC (proof of concept) that can be handed off with minimal instruction.
 
-These front end and backend selections were made due to both of their eases of use, simplicity. Both technology choices have the capability to scale assuming some code refactoring.
+These front end and backend selections were made due to both of their eases of use and simplicity. Both technology choices have the capability to scale assuming some code refactoring.
 
 ## What's next?
 
 * Email confirmation with a link to the charge ID for review
 * Storing email address with charge ID in a SQL database
+* Request and store shipping information /w auto calculation of shipping cost
+* Organize the code base into a Model View Controller structure
 
 
 ## License
