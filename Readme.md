@@ -6,7 +6,7 @@
 
 A simple, Flask & AJAX-powered eCommerce web app starter kit that uses Stripe to charge products based on what's added to a user's cart.
 
-This was an exercise requested from Stripe's [Solutions Architect](https://stripe.com/jobs/listing/solutions-architect/1156461) interview process, and is freely available to anyone exploring Stripe checkout integration with Flask and JQuery/AJAX.
+This example was built during Stripe's [Solutions Architect](https://stripe.com/jobs/listing/solutions-architect/1156461) interview process, and is freely available to anyone exploring Stripe checkout integration with Flask and JQuery/AJAX.
 
 ### Installation
 
