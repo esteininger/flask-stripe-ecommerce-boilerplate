@@ -130,6 +130,8 @@ These front end and backend selections were made due to both of their eases of u
 * Storing email address with charge ID in a SQL database
 * Request and store shipping information /w auto calculation of shipping cost
 * Organize the code base into a Model View Controller structure
+* Sentry error logging and email alerting
+* Order purchase notifications emailed
 
 
 ## License
