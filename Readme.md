@@ -2,8 +2,6 @@
 
 ![gif](https://i.imgur.com/jvwrlKd.gif)
 
-[![Build Status](http://img.shields.io/travis/shama/gaze.svg)](https://travis-ci.org/shama/gaze) [![Build status](https://ci.appveyor.com/api/projects/status/vtx65w9eg511tgo4)](https://ci.appveyor.com/project/shama/gaze)
-
 A simple Flask & AJAX-powered eCommerce web app starter kit that uses Stripe to charge products based on what's added to a user's LocalStorage cart.
 
 This example was built for Stripe's [Solutions Architect](https://stripe.com/jobs/listing/solutions-architect/1156461) interview process, and is freely available to anyone exploring Stripe checkout integration with Flask and JQuery/AJAX.
