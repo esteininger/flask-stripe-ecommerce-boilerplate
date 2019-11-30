@@ -53,7 +53,7 @@ var cart = JSON.parse(localStorage.getItem('cart'));
 cart.forEach(function(item, index) {
     totalAmount += item.amount;
     productStr += item.product;
-    // only append and if not last one
+    // only append "and" if not last one
     if (index !== cart.length - 1) {
         productStr += " and ";
     }
